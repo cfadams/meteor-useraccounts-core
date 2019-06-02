@@ -8,7 +8,7 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('METEOR@1.0.3');
+  api.versionsFrom('1.6');
 
   api.use([
     'ecmascript',
@@ -19,9 +19,9 @@ Package.onUse(function(api) {
   ], ['client', 'server']);
 
   api.use([
-    'blaze',
-    'reactive-dict',
-    'templating',
+    'blaze@2.3.3',
+    'reactive-dict@1.2.1',
+    'templating@1.3.2',
     'jquery'
   ], 'client');
 
