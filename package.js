@@ -2,15 +2,16 @@
 
 Package.describe({
   summary: 'Meteor sign up and sign in templates core package.',
-  version: '1.14.2',
-  name: 'useraccounts:core',
-  git: 'https://github.com/meteor-useraccounts/core.git',
+  version: '1.14.3',
+  name: 'cfadams:useraccounts-core',
+  git: 'https://github.com/cfadams/meteor-useraccounts-core.git',
 });
 
 Package.onUse(function(api) {
   api.versionsFrom('METEOR@1.0.3');
 
   api.use([
+    'ecmascript',
     'accounts-base',
     'check',
     'underscore',
@@ -29,8 +30,7 @@ Package.onUse(function(api) {
   ], 'server');
 
   api.imply([
-    'accounts-base',
-    'softwarerero:accounts-t9n@1.3.3',
+    'accounts-base'
   ], ['client', 'server']);
 
   api.imply([
@@ -50,6 +50,7 @@ Package.onUse(function(api) {
     'lib/field.js',
     'lib/core.js',
     'lib/client.js',
+    'lib/t9n.js',
     'lib/templates_helpers/at_error.js',
     'lib/templates_helpers/at_form.js',
     'lib/templates_helpers/at_input.js',
@@ -79,7 +80,7 @@ Package.onUse(function(api) {
 });
 
 Package.onTest(function(api) {
-  api.use('useraccounts:core@1.14.2');
+  api.use('cfadams:useraccounts-core@1.14.3');
 
   api.use([
     'accounts-password',
@@ -91,4 +92,8 @@ Package.onTest(function(api) {
   api.addFiles([
     'tests/tests.js',
   ], ['client', 'server']);
+});
+
+Npm.depends({
+  'meteor-accounts-t9n': '2.3.0'
 });
